@@ -15,3 +15,5 @@ NOTES - Steps taken during project completion
 6 - check the tables contain data on DBeaver
 Troubleshooting tip: deleted and re-created new DEV databases when setup failed (kept getting "too many connections" errors)
 
+(2) Set up cors middleware, add 500 Server Error, 404 Not Found
+0 - n/a self explanatory
