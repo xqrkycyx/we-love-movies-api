@@ -17,3 +17,7 @@ Troubleshooting tip: deleted and re-created new DEV databases when setup failed 
 
 (2) Set up cors middleware, add 500 Server Error, 404 Not Found
 0 - n/a self explanatory
+
+(3) First route: GET /movies 
+0 - connect app.js -> movies.router.js -> movies.controller.js
+1 - extract query param inside movies.controller.js (request.query.is_showing) before passing it to movies service

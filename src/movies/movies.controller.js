@@ -12,9 +12,16 @@ async function read(request, response) {
   response.json({ data: "" });
 }
 
-async function list(request, response) {
+async function list(request, response, next) {
   // TODO: Add your code here.
-  response.json({ });
+
+  try {
+    const is_showing = request.query.is_showing;
+    const data = await service.list(is_showing);
+    response.json({ data });
+  } catch (error) {
+    next(error);
+  }
 }
 
 module.exports = {
