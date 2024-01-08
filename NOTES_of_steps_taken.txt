@@ -22,5 +22,13 @@ Troubleshooting tip: deleted and re-created new DEV databases when setup failed 
 0 - connect app.js -> movies.router.js -> movies.controller.js
 1 - extract query param inside movies.controller.js (request.query.is_showing) before passing it to movies service
 
-(4) Implement GET /theaters route
+(4) GET /theaters route
 0 - connect app.js -> theaters.router.js -> theaters.controller.js
+
+(5) GET /movies/:movieId
+4 use cases: valid ID, invalid ID (not found handling), /reviews, /theaters
+(a) return valid/existing movie 
+    0 - connect movies.router.js -> movies.controller.js for route("/:movieId)
+    1 - movies service: complete read() method to read a single movie by ID from the db
+(b) handle invalid / not found movie
+    0 - within movies.controller.js "movieExists()" function, if "if(movie)" clause isn't satisfied, complete the "next()" function

@@ -19,7 +19,7 @@ async function list(is_showing) {
 
 async function read(movie_id) {
   // TODO: Add your code here
-  
+  return db("movies").select("*").where({ movie_id: movie_id }).first();
 }
 
 module.exports = {
