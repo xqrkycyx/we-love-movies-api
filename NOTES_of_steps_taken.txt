@@ -21,3 +21,6 @@ Troubleshooting tip: deleted and re-created new DEV databases when setup failed 
 (3) First route: GET /movies 
 0 - connect app.js -> movies.router.js -> movies.controller.js
 1 - extract query param inside movies.controller.js (request.query.is_showing) before passing it to movies service
+
+(4) Implement GET /theaters route
+0 - connect app.js -> theaters.router.js -> theaters.controller.js
