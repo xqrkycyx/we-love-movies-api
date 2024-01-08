@@ -37,4 +37,5 @@ async function list(request, response, next) {
 module.exports = {
   list: [asyncErrorBoundary(list)],
   read: [asyncErrorBoundary(movieExists), read],
+  movieExists, // Normally don't export this middleware, but it's needed by movies.router.js to ensure movie exists on NESTED ROUTES /movies/:id/reviews & movies/:id/theaters
 };

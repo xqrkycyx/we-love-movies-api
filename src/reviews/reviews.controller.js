@@ -5,18 +5,22 @@ const methodNotAllowed = require("../errors/methodNotAllowed");
 async function reviewExists(request, response, next) {
   // TODO: Write your code here
 
-  next({ });
+  next({});
 }
 
 async function destroy(request, response) {
   // TODO: Write your code here
-
 }
 
 async function list(request, response) {
   // TODO: Write your code here
-
-  response.json({  });
+  try {
+    const { movieId } = request.params;
+    const data = await service.list(movieId);
+    response.json({ data });
+  } catch (error) {
+    next(error);
+  }
 }
 
 function hasMovieIdInPath(request, response, next) {
@@ -35,7 +39,6 @@ function noMovieIdInPath(request, response, next) {
 
 async function update(request, response) {
   // TODO: Write your code here
-
 }
 
 module.exports = {

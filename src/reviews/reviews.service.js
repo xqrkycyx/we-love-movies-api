@@ -4,17 +4,15 @@ const tableName = "reviews";
 
 async function destroy(reviewId) {
   // TODO: Write your code here
-  
 }
 
 async function list(movie_id) {
   // TODO: Write your code here
-  
+  return db(tableName).select("*").where({ movie_id: movie_id });
 }
 
 async function read(reviewId) {
   // TODO: Write your code here
-  
 }
 
 async function readCritic(critic_id) {

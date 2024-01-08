@@ -27,8 +27,17 @@ Troubleshooting tip: deleted and re-created new DEV databases when setup failed 
 
 (5) GET /movies/:movieId
 4 use cases: valid ID, invalid ID (not found handling), /reviews, /theaters
-(a) return valid/existing movie 
+(5a) return valid/existing movie 
     0 - connect movies.router.js -> movies.controller.js for route("/:movieId)
     1 - movies service: complete read() method to read a single movie by ID from the db
-(b) handle invalid / not found movie
+(5b) handle invalid / not found movie
     0 - within movies.controller.js "movieExists()" function, if "if(movie)" clause isn't satisfied, complete the "next()" function
+(5c) (nested route) return all reviews associated with movie ID 
+    PARENT ROUTE (/movies/:movieId):
+    0 - movies.controller.js: export movieExists() middleware for import/use in parent 'movies' router 
+    1 - movies.router.js: add nested route w/ "router.use(... reviewsRouter)" stmt BEFORE all existing routes
+    CHILD ROUTE (/reviews):
+    2 - reviews.router.js: add GET ALL (list) route - route("/").get(controller.list)
+    3 - reviews.controller.js: add list() function
+    4 - reviews.service.js: add list() function
+    // INCOMPLETE: Add "critic" property as nested object onto each review
