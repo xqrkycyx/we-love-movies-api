@@ -1,0 +1,17 @@
+NOTES - Steps taken during project completion
+
+(1) Set up DBs, write migrations, run seed files
+0 - create dev, prod elephant DBs and update .env file with connection strings / URLs
+1 - update knexfile.js to read and use DEVELOPMENT_DATABASE_URL & PRODUCTION_DATABASE_URL from .env
+2 - create migration files
+    npx knex migrate:make createMoviesTable
+    npx knex migrate:make createCriticsTable
+    npx knex migrate:make createReviewsTable
+    npx knex migrate:make createTheatersTable
+    npx knex migrate:make createMoviesTheatersTable
+3 - run migration by starting server: "npm run start:dev" (running the startup script finally executed the migration correctly - attempting "npx knex migrate:latest" from the CLI kept causing problems)
+4 - connect to DB(s) on DBeaver and confirm all tables are created but empty (seed script hasn't yet been run)
+5 - seed the db (yes, while dev server is already running): "npm run seed"
+6 - check the tables contain data on DBeaver
+Troubleshooting tip: deleted and re-created new DEV databases when setup failed (kept getting "too many connections" errors)
+
