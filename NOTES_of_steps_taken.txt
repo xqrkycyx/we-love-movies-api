@@ -48,6 +48,9 @@ Troubleshooting tip: deleted and re-created new DEV databases when setup failed 
     CHILD ROUTE (/theaters):
     n/a -- all logic is already present from Requirement 4 above (implemented GET /theaters route)
 
-(6) DELETE a /reviews/:reviewId
+(6) DELETE /reviews/:reviewId
     0 - connect app.js -> reviews.router.js -> reviews.controller.js
     1 - reviews.router.js & reviews.service.js: add DELETE route + handler
+
+(7) UPDATE /reviews/:reviewId
+    0 - reviews.router.js -> reviews.controller.js -> reviews.service.js: complete and wire up the "update()" function!

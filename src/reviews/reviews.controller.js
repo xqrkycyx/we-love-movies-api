@@ -48,8 +48,20 @@ function noMovieIdInPath(request, response, next) {
   next();
 }
 
-async function update(request, response) {
+async function update(request, response, next) {
   // TODO: Write your code here
+  const updatedReview = {
+    ...response.locals.review,
+    ...request.body.data,
+    review_id: response.locals.review.review_id,
+  };
+
+  try {
+    const data = await service.update(updatedReview);
+    response.json({ data });
+  } catch (error) {
+    next(error);
+  }
 }
 
 module.exports = {
@@ -60,6 +72,7 @@ module.exports = {
   ],
   list: [hasMovieIdInPath, asyncErrorBoundary(list)],
   update: [
+    reviewExists,
     noMovieIdInPath,
     asyncErrorBoundary(reviewExists),
     asyncErrorBoundary(update),

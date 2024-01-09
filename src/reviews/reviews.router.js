@@ -6,6 +6,7 @@ const methodNotAllowed = require("../errors/methodNotAllowed");
 
 router
   .route("/:reviewId([0-9]+)")
+  .put(controller.update)
   .delete(controller.destroy)
   .all(methodNotAllowed);
 
