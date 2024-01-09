@@ -40,4 +40,5 @@ Troubleshooting tip: deleted and re-created new DEV databases when setup failed 
     2 - reviews.router.js: add GET ALL (list) route - route("/").get(controller.list)
     3 - reviews.controller.js: add list() function
     4 - reviews.service.js: add list() function
-    // INCOMPLETE: Add "critic" property as nested object onto each review
+    FINALLY: Add critic metadata as nested object for each review in response body
+    5 - reviews.service.js: Update "list()" query to join 'critics' table fields on review_id for each review, then nest critic fields under new 'critic' key
