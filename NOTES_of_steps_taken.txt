@@ -59,3 +59,6 @@ Troubleshooting tip: deleted and re-created new DEV databases when setup failed 
     0 - delete local "package-lock.json" and add the file to .gitignore to avoid private/internal registry resolution (Indeed registry won't be available to project from Render's machine)
     1 - seed the production database in order to see response data returned:
         from the local command line, run command "NODE_ENV=production npm run seed"
+
+(9) Deploy client app (front end UI):
+    https://github.com/xqrkycyx/starter-movie-front-end/tree/main?tab=readme-ov-file#deployment
