@@ -54,3 +54,8 @@ Troubleshooting tip: deleted and re-created new DEV databases when setup failed 
 
 (7) UPDATE /reviews/:reviewId
     0 - reviews.router.js -> reviews.controller.js -> reviews.service.js: complete and wire up the "update()" function!
+
+(8) Deploying the service:
+    0 - delete local "package-lock.json" and add the file to .gitignore to avoid private/internal registry resolution (Indeed registry won't be available to project from Render's machine)
+    1 - seed the production database in order to see response data returned:
+        from the local command line, run command "NODE_ENV=production npm run seed"
