@@ -4,15 +4,26 @@ const methodNotAllowed = require("../errors/methodNotAllowed");
 
 async function reviewExists(request, response, next) {
   // TODO: Write your code here
-
-  next({});
+  const review = await service.read(request.params.reviewId);
+  if (review) {
+    response.locals.review = review;
+    return next();
+  }
+  next({ status: 404, message: `Review cannot be found.` });
 }
 
-async function destroy(request, response) {
+async function destroy(request, response, next) {
   // TODO: Write your code here
+  const { review } = response.locals;
+  try {
+    await service.destroy(review.review_id);
+    response.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
 }
 
-async function list(request, response) {
+async function list(request, response, next) {
   // TODO: Write your code here
   try {
     const { movieId } = request.params;

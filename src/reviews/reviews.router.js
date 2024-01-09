@@ -4,6 +4,11 @@ const methodNotAllowed = require("../errors/methodNotAllowed");
 
 // TODO: Add your routes here
 
+router
+  .route("/:reviewId([0-9]+)")
+  .delete(controller.destroy)
+  .all(methodNotAllowed);
+
 router.route("/").get(controller.list).all(methodNotAllowed);
 
 module.exports = router;

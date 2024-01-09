@@ -47,3 +47,7 @@ Troubleshooting tip: deleted and re-created new DEV databases when setup failed 
     0 - movies.router.js: add nested route w/ "router.use(... theatersRouter)" stmt BEFORE all existing routes
     CHILD ROUTE (/theaters):
     n/a -- all logic is already present from Requirement 4 above (implemented GET /theaters route)
+
+(6) DELETE a /reviews/:reviewId
+    0 - connect app.js -> reviews.router.js -> reviews.controller.js
+    1 - reviews.router.js & reviews.service.js: add DELETE route + handler

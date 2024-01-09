@@ -17,6 +17,7 @@ const addCritic = mapProperties({
 
 async function destroy(reviewId) {
   // TODO: Write your code here
+  return db(tableName).where({ review_id: reviewId }).del();
 }
 
 async function list(movie_id) {
@@ -39,6 +40,7 @@ async function list(movie_id) {
 
 async function read(reviewId) {
   // TODO: Write your code here
+  return db(tableName).select("*").where({ review_id: reviewId }).first();
 }
 
 async function readCritic(critic_id) {

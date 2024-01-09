@@ -15,7 +15,7 @@ app.use(express.json());
 // Routers + handlers entry points:
 app.use("/movies", moviesRouter);
 app.use("/theaters", theatersRouter);
-// app.use("/reviews", reviewsRouter);
+app.use("/reviews", reviewsRouter);
 
 // Not found handler
 app.use((req, res, next) => {
