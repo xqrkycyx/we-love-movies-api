@@ -42,3 +42,8 @@ Troubleshooting tip: deleted and re-created new DEV databases when setup failed 
     4 - reviews.service.js: add list() function
     FINALLY: Add critic metadata as nested object for each review in response body
     5 - reviews.service.js: Update "list()" query to join 'critics' table fields on review_id for each review, then nest critic fields under new 'critic' key
+(5d) (nested route) return all theaters associated with movie ID 
+    PARENT ROUTE (/movies/:movieId):
+    0 - movies.router.js: add nested route w/ "router.use(... theatersRouter)" stmt BEFORE all existing routes
+    CHILD ROUTE (/theaters):
+    n/a -- all logic is already present from Requirement 4 above (implemented GET /theaters route)
